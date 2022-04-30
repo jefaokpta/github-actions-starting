@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  teste:
+    image: nginx
+    ports:
+      - '80:80'
+    volumes:
+      - ../src:/usr/share/nginx/html:ro
