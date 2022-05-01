@@ -29,7 +29,7 @@ jobs:
           pwd
           ls -l
           echo criando RSA
-          echo "${{ secrets.PRIVATE_KEY }}" > id_rsa
-          chmod 600 id_rsa
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          ssh -i id_rsa root@${{ secrets.SERVER }} ls -l
+          ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER }} ls -l
