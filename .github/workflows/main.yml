@@ -28,6 +28,8 @@ jobs:
         run: |
           pwd
           ls -l
+          echo criando RSA
           echo "${{ secrets.PRIVATE_KEY }}" > id_rsa
-          echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          ssh -i id_rsa root@${{ secrets.SERVER }} ls -l
+          cat id_rsa
+          ## echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          ## ssh -i id_rsa root@${{ secrets.SERVER }} ls -l
