@@ -26,10 +26,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: se localizando
         run: |
-          pwd
-          ls -l
-          echo criando RSA
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER }} ls -l
+          scp -i ~/.ssh/id_rsa -r src root@${{ secrets.SERVER }}:/home/asterisk
+        ## ssh -i ~/.ssh/id_rsa root@${{ secrets.SERVER }} ls -l
