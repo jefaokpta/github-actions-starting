@@ -30,4 +30,5 @@ jobs:
           echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
           cp ~/.ssh/id_rsa src
+          cp ~/.ssh/known_hosts src
           scp -i ~/.ssh/id_rsa -r src root@${{ secrets.SERVER }}:/home/asterisk
